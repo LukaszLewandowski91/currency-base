@@ -19,7 +19,13 @@ const ResultBox = ({ from, to, amount }) => {
 
   return (
     <div className={styles.result} data-testid="finalResult">
-      {formattedAmount} = {convertedAmount}
+      {parseInt(amount) < 0 ? (
+        <span>Wrong value...</span>
+      ) : (
+        <>
+          {formattedAmount} = {convertedAmount}
+        </>
+      )}
     </div>
   );
 };

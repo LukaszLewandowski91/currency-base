@@ -79,4 +79,11 @@ describe("Component ResultBox", () => {
       cleanup();
     }
   });
+  it("should return Wrong value when input is lower than zero", () => {
+    render(<ResultBox from="PLN" to="USD" amount={-100} />);
+
+    const finalResult = screen.getByTestId("finalResult");
+
+    expect(finalResult).toHaveTextContent("Wrong value...");
+  });
 });
